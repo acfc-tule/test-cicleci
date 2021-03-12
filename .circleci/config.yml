@@ -24,6 +24,12 @@ jobs:
       - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev libsqlite3-dev
       - run: sudo docker-php-ext-install zip
 
+      # Install rsync. It will be used to upload our code to server
+      - run: sudo apt-get install rsync
+
+      # Sync the SSH keys 
+      - add_ssh_keys
+
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -56,6 +62,12 @@ jobs:
       #- run: ./vendor/bin/phpunit
       #- run: ./vendor/bin/codecept build
       #- run: ./vendor/bin/codecept run
+
+      # Add the server to known hosts
+      - run: ssh-keyscan -H 192.168.10.60 >> ~/.ssh/known_hosts
+
+      # Finally, upload your files to server.
+      - run: rsync -avce ssh --delete ./dist/ root@192.168.10.60:/var/www/html/test-cicleci
     branches:
       only:
         - main
