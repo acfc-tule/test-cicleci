@@ -1,0 +1,13 @@
+{
+    "name": "test-cicleci",
+    "description": "Test CI",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.5.0"
+    },
+    "version": "1.0.0"
+}
