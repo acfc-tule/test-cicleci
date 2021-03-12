@@ -67,7 +67,7 @@ jobs:
       - run: ssh-keyscan -H 192.168.10.60 >> ~/.ssh/known_hosts
 
       # Finally, upload your files to server.
-      - run: rsync -avce ssh --delete ./dist/ root@192.168.10.60:/var/www/html/test-cicleci
+      - run: rsync -avce ssh --delete ./dist/ ubuntu1@192.168.10.60:/var/www/html/test-cicleci
     branches:
       only:
         - main
