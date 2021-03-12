@@ -1,0 +1,12 @@
+{
+    "name": "test-cicleci",
+    "description": "Test CI",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/acfc-tule/test-cicleci.git"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    }
+}
